@@ -9,7 +9,7 @@ const Destockage = () => {
 
   const fetchArticles = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/articles");
+      const res = await axios.get("https://fabric-stock-backend.onrender.com/api/articles");
       const filtered = res.data.filter((a) => parseInt(a.emplacement) >= 1100);
       setArticles(filtered.slice(0, 6));
     } catch (err) {
@@ -28,7 +28,7 @@ const Destockage = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/articles/destock", {
+      await axios.post("https://fabric-stock-backend.onrender.com/api/articles/destock", {
         codeArticle,
         emplacementStock,
         emplacementDestock,
@@ -50,7 +50,7 @@ const Destockage = () => {
     if (!confirm) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/articles/${id}`);
+      await axios.delete(`https://fabric-stock-backend.onrender.com/api/articles/${id}`);
       fetchArticles();
     } catch (err) {
       console.error("Delete failed:", err);

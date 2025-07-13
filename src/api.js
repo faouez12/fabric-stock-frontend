@@ -1,6 +1,6 @@
 export async function testBackendConnection() {
   try {
-    const response = await fetch("http://localhost:5000/api/test");
+    const response = await fetch("https://fabric-stock-backend.onrender.com/api/test");
     const data = await response.json();
     console.log("Backend Response:", data);
     return data;

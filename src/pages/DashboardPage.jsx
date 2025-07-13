@@ -29,7 +29,7 @@ const DashboardPage = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/articles");
+        const res = await axios.get("https://fabric-stock-backend.onrender.com/api/articles");
         setArticles(res.data);
       } catch (err) {
         console.error("Error fetching articles:", err);

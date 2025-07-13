@@ -21,7 +21,7 @@ const EmplacementPage = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `http://localhost:5000/api/articles/search/${emplacement}`
+        `https://fabric-stock-backend.onrender.com/api/articles/search/${emplacement}`
       );
       setResult(res.data);
     } catch (err) {

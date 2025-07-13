@@ -9,7 +9,7 @@ const ArticlesPage = () => {
   // Fetch all article types
   const fetchArticles = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/articles-list");
+      const res = await axios.get("https://fabric-stock-backend.onrender.com/api/articles-list");
       setArticles(res.data);
     } catch (err) {
       console.error("Error fetching article list:", err);
@@ -32,7 +32,7 @@ const ArticlesPage = () => {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:5000/api/articles-list", form);
+      await axios.post("https://fabric-stock-backend.onrender.com/api/articles-list", form);
       setForm({ codeArticle: "", libelle: "" });
       fetchArticles();
     } catch (err) {
@@ -47,7 +47,7 @@ const ArticlesPage = () => {
     if (!window.confirm("Delete this article type?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/articles-list/${id}`);
+      await axios.delete(`https://fabric-stock-backend.onrender.com/api/articles-list/${id}`);
       fetchArticles();
     } catch (err) {
       console.error("Error deleting:", err);

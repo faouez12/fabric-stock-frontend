@@ -9,7 +9,7 @@ const StockagePage = () => {
 
   const fetchArticles = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/articles");
+      const res = await axios.get("https://fabric-stock-backend.onrender.com/api/articles");
       const stockageOnly = res.data.filter((a) => {
         const num = parseInt(a.emplacement, 10);
         return num >= 101 && num <= 1099;
@@ -39,7 +39,7 @@ const StockagePage = () => {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:5000/api/articles", {
+      await axios.post("https://fabric-stock-backend.onrender.com/api/articles", {
         codeArticle,
         emplacement,
         quantiteEntree: 1,
@@ -59,7 +59,7 @@ const StockagePage = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/articles/${id}`);
+      await axios.delete(`https://fabric-stock-backend.onrender.com/api/articles/${id}`);
       fetchArticles();
     } catch (err) {
       console.error("Delete failed:", err);

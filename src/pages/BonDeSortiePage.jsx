@@ -10,7 +10,7 @@ const BonDeSortiePage = () => {
 
   const fetchBons = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/bons-de-sortie");
+      const res = await axios.get("https://fabric-stock-backend.onrender.com/api/bons-de-sortie");
       setBons(res.data);
     } catch (err) {
       console.error("Error fetching bons:", err);
@@ -19,7 +19,7 @@ const BonDeSortiePage = () => {
 
   const fetchDestockedArticles = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/articles");
+      const res = await axios.get("https://fabric-stock-backend.onrender.com/api/articles");
       const destocked = res.data.filter((a) => parseInt(a.emplacement) >= 1101);
       setArticles(destocked);
     } catch (err) {
@@ -58,7 +58,7 @@ const BonDeSortiePage = () => {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:5000/api/bons-de-sortie", {
+      await axios.post("https://fabric-stock-backend.onrender.com/api/bons-de-sortie", {
         client,
         articles: selectedArticles.map((a) => ({
           codeArticle: a.codeArticle,
@@ -81,7 +81,7 @@ const BonDeSortiePage = () => {
   const handleDownloadPDF = async (bonId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/bons-de-sortie/${bonId}/pdf`,
+        `https://fabric-stock-backend.onrender.com/api/bons-de-sortie/${bonId}/pdf`,
         {
           responseType: "blob",
         }
@@ -108,7 +108,7 @@ const BonDeSortiePage = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/bons-de-sortie/${bonId}`);
+      await axios.delete(`https://fabric-stock-backend.onrender.com/api/bons-de-sortie/${bonId}`);
       fetchBons();
       fetchDestockedArticles(); // Also refresh articles after delete
     } catch (err) {

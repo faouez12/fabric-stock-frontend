@@ -1,4 +1,4 @@
-const API_URL = "https://fabric-stock-backend.onrender.com/api";
+export const API_URL = "https://fabric-stock-backend.onrender.com/api";
 
 export async function testBackendConnection() {
   try {
