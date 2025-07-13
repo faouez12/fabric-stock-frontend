@@ -1,0 +1,151 @@
+This is a full-stack Fabric Stock Management system built with:
+
+Backend: Node.js + Express + MongoDB
+
+Frontend: React + Vite
+
+It allows your entreprise to:
+✅ Add and manage fabric stock with QR codes
+✅ Déstockage with auto-removal when quantity is zero
+✅ Filter by emplacement (shelves/locations)
+✅ Generate Bon de Sortie (Delivery Notes) as PDFs
+✅ Track and organize your fabric inventory cleanly
+
+📂 Project Structure
+pgsql
+Copier
+Modifier
+Fabric-Stock-Manager/
+│
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   ├── server.js
+│   ├── package.json
+│   └── .env.example
+│
+├── frontend/
+│   ├── src/
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json
+│   └── .env.example
+│
+└── README.md
+⚙️ Installation Instructions
+1️⃣ Clone or extract the project
+bash
+Copier
+Modifier
+git clone [repository-url]
+or extract your provided zip file into your working folder.
+
+2️⃣ Setup the Backend
+Open a terminal in the backend/ folder.
+
+Install dependencies:
+
+bash
+Copier
+Modifier
+npm install
+Create a .env file using the provided .env.example:
+
+ini
+Copier
+Modifier
+MONGO_URI=your_mongo_connection_string
+PORT=5000
+You can use MongoDB Atlas (free) for your MONGO_URI, or your local MongoDB if preferred.
+
+Run the backend server:
+
+bash
+Copier
+Modifier
+npm start
+The backend will run on http://localhost:5000.
+
+3️⃣ Setup the Frontend
+Open a separate terminal in the frontend/ folder.
+
+Install dependencies:
+
+bash
+Copier
+Modifier
+npm install
+Create a .env file using the provided .env.example if needed.
+
+Run the frontend:
+
+bash
+Copier
+Modifier
+npm run dev
+The frontend will run on http://localhost:5173 (or the port Vite assigns).
+
+🖥️ Usage Guide
+✅ Stockage Page
+Add new fabric articles with details (name, quantity, emplacement).
+
+Generates and displays a QR code for each fabric to attach physically if needed.
+
+✅ Déstockage Page
+Remove quantities when fabric is taken out.
+
+Automatically deletes the article when quantity reaches zero.
+
+✅ Emplacement Page
+Filter fabrics by emplacement to manage warehouse shelf organization.
+
+✅ Bon de Sortie Page
+Select articles and quantities for delivery.
+
+Generates a professional PDF delivery note ready to print.
+
+📦 Dependencies
+Backend:
+express
+
+mongoose
+
+dotenv
+
+cors
+
+pdfkit
+
+qrcode
+
+Frontend:
+react
+
+react-dom
+
+axios
+
+vite
+
+qrcode.react
+
+react-router-dom
+
+🛠️ Notes
+✅ Ensure your MongoDB connection string is correctly set in .env.
+✅ The frontend uses Axios to connect to your backend at http://localhost:5000.
+✅ You may adjust ports if needed, but ensure they match in frontend API requests.
+✅ If using MongoDB Atlas, allow your IP in network access for testing.
+
+🚀 Future Improvements (Optional)
+✅ Deploy backend using Railway, Render, or VPS for online access.
+✅ Deploy frontend on Vercel or Netlify for one-click URL usage.
+✅ Add user authentication for employee-level control.
+✅ Add barcode scanning integration for mobile stock management.
+
+🤝 License
+This project was built for your entreprise as a clean, real-world stock management system you can adapt and improve as needed.
+
+🎉 Thank you for using this system!
+If you need help deploying it online or improving it further, please let me know.
